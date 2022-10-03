@@ -1,0 +1,66 @@
+<!--pages/table/table.wxml-->
+<van-notify id="van-notify" />
+<view class="title" wx:if="{{weekIndex >= 0 && weekIndex <= 17}}">
+  <view style="margin-right:20rpx">当前为</view>
+  <picker bindchange='bindWeekChange' value='{{weekIndex}}' range='{{weeks}}'><text style="font-weight:bolder">{{weeks[weekIndex]}}</text> </picker>
+  <view style="margin-left:20rpx">共有 <text style="font-weight:bolder">{{all}}</text> 节课</view>
+  <!--<van-icon name="replay" size="36rpx" class="refresh" bind:click="refresh" />-->
+</view>
+<view class="title" wx:else>
+  <view style="margin-right:20rpx;font-weight:bolder;">还没开学哦，好好休息一下吧！</view>
+</view>
+
+<van-dialog id="van-dialog" />
+<view class="top2">
+  <view wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="id" class="top-text">
+    <text wx:if="{{index+1==weekday}}" style="color:#b8600d;font-weight:bold">周{{item}}</text>
+    <text wx:else>周{{item}}</text>
+  </view>
+</view>
+
+<scroll-view scroll-y="true" class="scroll" bindtouchstart='touchStart' bindtouchend="touchEnd">
+  <view class='cebian1'>
+    <view class='cebian2'>
+      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="id" class="left">
+        {{item}}
+      </view>
+    </view>
+    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="id">
+      <view class='line' style='margin-top:{{(index+1)*130}}rpx;'></view>
+    </view>
+    <!--课表-->
+    <view wx:for="{{wlist}}" wx:key="id" wx:index="index">
+      <view class="flex-item kcb-item" style="margin-left:{{(item.weekday-1)*103}}rpx;margin-top:{{(item.lessons_start-1)*130+3}}rpx;height:{{item.lessons_time*130-3}}rpx;background-color:{{colorMap[item.name]}};" bindtap="powerDrawer" data-statu="open" data-index='{{index}}'>
+        <view wx:if="{{item.lessons_time>1}}" class="smalltext" data-statu="open" data-index='{{index}}'>
+          {{item.name}}@{{item.location}}</view>
+        <view wx:else class="smalltext1" data-statu="open" data-index='{{index}}'>{{item.name}}@{{item.location}}</view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <view class="drawer_title">{{temp.name}}</view>
+  <view class="drawer_content">
+    <view>
+      <view class='description'>
+        <text>{{temp.teacher}}</text>
+      </view>
+      <view class='description'>
+        <text>@{{temp.location}}</text>
+      </view>
+      <view class='description'>
+        <text>[{{temp.weeks}}]</text>
+      </view>
+      <view class='description'>
+        <text>第{{temp.lessons_start}}—{{temp.lessons_time}}节</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{!isBind}}" class="passenger" bindtap="bind">本功能需绑定教务网<button>点击绑定</button></view>

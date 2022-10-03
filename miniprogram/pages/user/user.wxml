@@ -1,0 +1,17 @@
+<!--pages/user/user.wxml-->
+<van-toast id="van-toast" />
+
+<view class='top'>
+  <view class='head'>
+    <image src='' mode='aspectFill' bindtap='clickImg' />
+  </view>
+  <view class="information">
+    <view class="uname">{{userData.name}}</view>
+  </view>
+</view>
+
+
+<van-cell-group inset>
+  <van-cell title="绑定教务网账号" value="{{isBind?'已绑定':'未绑定'}}" label="{{isBind?'':'绑定后方可使用课表'}}" bindtap="jumpRegister" />
+  <van-cell title="登出账号" bindtap="logout" />
+</van-cell-group>

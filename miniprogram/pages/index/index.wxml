@@ -1,0 +1,37 @@
+<!--index.wxml-->
+
+<view class='main-coverImgs'>
+  <swiper indicator-dots='true' autoplay='true' interval='4000' class='coverImgs' indicator-color="rgba(255, 255, 255, 0.2)" indicator-active-color="rgba(255, 255, 255, 0.78)">
+    <swiper-item wx:for="{{coverImgs}}" wx:key="index">
+      <image src='{{item}}'></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+
+<view style="margin:0 20rpx" wx:if="{{noticecontent}}">
+  <van-notice-bar scrollable="{{false}}" color="#464547" backgroundColor="#fefff9" left-icon="volume-o" text="{{noticecontent.content}}" custom-class="" bindtap="jumpmarket" data-url="{{noticecontent.url}}" scrollable speed="20" bindtap="jumpurl" />
+</view>
+
+<view>
+  <view class="card" bindtap="jumptable">
+    <view class="title">
+      <view style="display:flex">
+        <view class="cc1">
+          <view class="cc2"></view>
+        </view>今日课表
+      </view>
+      <view style="display:flex;margin-right:5rpx">
+        <image src="{{weather.icon}}" /> {{weather.weather.data}}
+        {{weather.temperature.data}}℃
+      </view>
+    </view>
+    <view class="content">
+      <view wx:if="{{today.length==0}}">今日暂无课程,休息一下吧~</view>
+      <view wx:else>
+        <view wx:for="{{today}}" wx:key="index" class="lesson">{{item.lessons}} 节 — {{item.name}} @ {{item.location}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

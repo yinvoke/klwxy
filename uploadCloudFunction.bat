@@ -1,0 +1,1 @@
+"G:\微信web开发者工具\cli.bat" cloud functions deploy --e lzcjwsh-sdx --n quickstartFunctions --r --project "D:\小程序项目\klwxy" --report_first && "G:\微信web开发者工具\cli.bat" cloud functions deploy --e klwxy-9g9senhi4318ccea --n quickstartFunctions --r --project "D:\小程序项目\klwxy" --report

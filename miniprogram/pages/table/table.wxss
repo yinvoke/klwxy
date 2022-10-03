@@ -1,0 +1,184 @@
+/* pages/table/table.wxss */
+page {
+  height: auto;
+}
+
+
+.title {
+  padding: 20rpx 30rpx;
+  padding-top: 5rpx;
+  color: #140303;
+  font-size: 31rpx;
+  font-weight: 500;
+  display: flex;
+}
+
+.refresh {
+  right: 40rpx;
+  top: 11rpx;
+  position: absolute;
+}
+
+.flex-item {
+  width: 95rpx;
+  height: 100px;
+}
+
+.cebian1 {
+  height: 1600rpx;
+  width: 750rpx;
+  display: flex;
+}
+
+.cebian2 {
+  color: #333132;
+}
+
+.line {
+  width: 100%;
+  position: absolute;
+  border-bottom: 1rpx solid;
+  color: #aaaaaa;
+  z-index: -10;
+}
+
+.kcb-item {
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 8rpx;
+  width: 96rpx;
+  padding: 0 3rpx;
+}
+
+.smalltext {
+  font-size: 23rpx;
+  color: #1f1a3b;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.smalltext1 {
+  font-size: 23rpx;
+  color: #1f1a3b;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top2 {
+  padding: 10rpx 0;
+  display: flex;
+  flex-direction: row;
+  color: #140303;
+  padding-left: 35rpx;
+}
+
+.top-text {
+  width: 102rpx;
+  height: 35rpx;
+  font-size: 9pt;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.scroll {
+  height: 93%;
+  position: fixed;
+}
+
+.left {
+  width: 37rpx;
+  height: 130rpx;
+  font-size: 27rpx;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.choose {
+  display: flex;
+  padding-bottom: 10rpx;
+  text-align: center;
+  color: #1f1a3b;
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+
+/*mask*/
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.4;
+  overflow: hidden;
+}
+
+/*content*/
+.drawer_box {
+  width: 400rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 25%;
+  left: 175rpx;
+  z-index: 1001;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 20rpx;
+}
+
+.drawer_title {
+  padding: 20rpx;
+  font: 24px "microsoft yahei";
+  text-align: center;
+  font-weight: bold;
+}
+
+.drawer_content {
+  margin-top: 50rpx;
+  padding: 20rpx;
+  height: 420rpx;
+  overflow-y: scroll;
+  /*超出父盒子高度可滚动*/
+}
+
+.drawer_content .description {
+  margin: 10rpx 20rpx;
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+
+.passenger {
+  position: fixed;
+  top: 30%;
+  left: 25%;
+  width: 50%;
+  height: 64px;
+  background-color: rgb(255, 246, 222);
+  box-shadow: 1px 1px 3px rgb(133, 133, 133);
+  border-radius: 8px;
+  color: #303133;
+  font-weight: bold;
+  padding: 16px 6px;
+  text-align: center;
+}
